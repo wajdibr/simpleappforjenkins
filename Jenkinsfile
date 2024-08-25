@@ -25,6 +25,12 @@ pipeline {
                 sh 'python3 /Users/wajdibenrabah/Documents/projects/sec-project/src/android/android_sast_analyzer.py /Users/wajdibenrabah/Documents/projects/sec-project/src/android/fcc.apk'
             }
         }
+        archiveArtifacts artifacts: 'sast_report.json', allowEmptyArchive: true
+        stage('Display Results') {
+            steps {
+                sh 'cat sast_report.json'
+            }
+        }
         stage('Build') {
             steps {
                 sh './gradlew assembleDebug --stacktrace'
