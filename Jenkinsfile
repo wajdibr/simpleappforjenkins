@@ -21,6 +21,9 @@ pipeline {
         }
         stage('SAST Analysis') {
             steps {
+                sh 'which jadx || echo "jadx not found"'
+                sh 'echo $PATH'
+                sh 'python3 --version'
                 sh 'python3 /Users/wajdibenrabah/Documents/projects/sec-project/src/android/android_sast_analyzer.py /Users/wajdibenrabah/Documents/projects/sec-project/src/android/fcc.apk'
                 archiveArtifacts artifacts: 'sast_report.json', allowEmptyArchive: true
             }
