@@ -14,6 +14,17 @@ pipeline {
                 sh './gradlew --version'
             }
         }
+        stage('Setup') {
+            steps {
+                sh 'pip3 install -r requirements.txt'
+            }
+        }
+
+        stage('SAST Analysis') {
+            steps {
+                sh 'python3 /chemin/vers/android_sast_analyzer.py /chemin/vers/votre/apk'
+            }
+        }
         stage('Build') {
             steps {
                 sh './gradlew assembleDebug --stacktrace'
