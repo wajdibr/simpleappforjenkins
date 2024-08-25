@@ -22,7 +22,7 @@ pipeline {
 
         stage('SAST Analysis') {
             steps {
-                sh 'python3 /chemin/vers/android_sast_analyzer.py /chemin/vers/votre/apk'
+                sh 'python3 /Users/wajdibenrabah/Documents/projects/sec-project/src/android/android_sast_analyzer.py /Users/wajdibenrabah/Documents/projects/sec-project/src/android/fcc.apk'
             }
         }
         stage('Build') {

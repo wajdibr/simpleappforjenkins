@@ -1,0 +1,5 @@
+pyaxmlparser
+networkx
+javalang
+requests
+packaging
